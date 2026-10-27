@@ -1,0 +1,121 @@
+{
+ "split": "val",
+ "trays": 35,
+ "pieces": 850,
+ "work_px_per_cm": 10.0,
+ "match": "depth-interval IoU >= 0.5",
+ "pipeline": {
+  "run": "run2",
+  "threshold": 0.45
+ },
+ "runs": {
+  "run1": {
+   "weights": "best_unet.pth",
+   "by_threshold": {
+    "0.3": {
+     "piece_precision": 0.7387,
+     "piece_recall": 0.7482,
+     "piece_f1": 0.7434,
+     "closing_share": 0.2552,
+     "pixel_f1": 0.733
+    },
+    "0.35": {
+     "piece_precision": 0.748,
+     "piece_recall": 0.7541,
+     "piece_f1": 0.751,
+     "closing_share": 0.2653,
+     "pixel_f1": 0.7383
+    },
+    "0.4": {
+     "piece_precision": 0.7583,
+     "piece_recall": 0.7529,
+     "piece_f1": 0.7556,
+     "closing_share": 0.2748,
+     "pixel_f1": 0.7426
+    },
+    "0.45": {
+     "piece_precision": 0.768,
+     "piece_recall": 0.7518,
+     "piece_f1": 0.7598,
+     "closing_share": 0.2843,
+     "pixel_f1": 0.746
+    },
+    "0.5": {
+     "piece_precision": 0.7718,
+     "piece_recall": 0.7482,
+     "piece_f1": 0.7599,
+     "closing_share": 0.2932,
+     "pixel_f1": 0.7486
+    },
+    "0.55": {
+     "piece_precision": 0.784,
+     "piece_recall": 0.7471,
+     "piece_f1": 0.7651,
+     "closing_share": 0.3026,
+     "pixel_f1": 0.7506
+    },
+    "0.6": {
+     "piece_precision": 0.7855,
+     "piece_recall": 0.7412,
+     "piece_f1": 0.7627,
+     "closing_share": 0.3118,
+     "pixel_f1": 0.7516
+    }
+   }
+  },
+  "run2": {
+   "weights": "best_unet.pth",
+   "by_threshold": {
+    "0.3": {
+     "piece_precision": 0.7474,
+     "piece_recall": 0.7729,
+     "piece_f1": 0.76,
+     "closing_share": 0.2868,
+     "pixel_f1": 0.7431
+    },
+    "0.35": {
+     "piece_precision": 0.7423,
+     "piece_recall": 0.7624,
+     "piece_f1": 0.7522,
+     "closing_share": 0.296,
+     "pixel_f1": 0.7464
+    },
+    "0.4": {
+     "piece_precision": 0.752,
+     "piece_recall": 0.7671,
+     "piece_f1": 0.7595,
+     "closing_share": 0.3048,
+     "pixel_f1": 0.7486
+    },
+    "0.45": {
+     "piece_precision": 0.7597,
+     "piece_recall": 0.7624,
+     "piece_f1": 0.761,
+     "closing_share": 0.3131,
+     "pixel_f1": 0.7504
+    },
+    "0.5": {
+     "piece_precision": 0.7588,
+     "piece_recall": 0.7588,
+     "piece_f1": 0.7588,
+     "closing_share": 0.3212,
+     "pixel_f1": 0.7514
+    },
+    "0.55": {
+     "piece_precision": 0.7612,
+     "piece_recall": 0.7576,
+     "piece_f1": 0.7594,
+     "closing_share": 0.3292,
+     "pixel_f1": 0.7519
+    },
+    "0.6": {
+     "piece_precision": 0.7638,
+     "piece_recall": 0.7494,
+     "piece_f1": 0.7565,
+     "closing_share": 0.3384,
+     "pixel_f1": 0.7517
+    }
+   }
+  }
+ }
+}

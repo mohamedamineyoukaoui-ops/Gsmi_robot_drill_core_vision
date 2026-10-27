@@ -1,0 +1,6 @@
+flowchart LR
+    xrf["Elements %<br/>(Ca, Si, P ...)"] --> ox["Oxides %<br/>CaO = 1.3992 x Ca ..."]
+    ox --> close["Closure: rescale to sum 1<br/>undetected = 65 % of the detection limit"]
+    close --> lr["21 pairwise log-ratios<br/>ln(CaO/SiO2), ln(P2O5/MgO) ..."]
+    lr --> flag["+ 'MgO not measured' flag"]
+    flag --> rf["Random forest"]

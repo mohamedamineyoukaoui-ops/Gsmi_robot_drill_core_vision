@@ -1,0 +1,14 @@
+flowchart LR
+    photos["Robot photos"] --> stitch["Stitching<br/>+ scale (px/cm)"]
+    stitch --> cracks["Crack segmentation<br/>U-Net"]
+    stitch --> cols["Column detection<br/>YOLO11"]
+    stitch --> det["Piece detection<br/>YOLO11"]
+    cols --> zones["Zone classification<br/>YOLOv8-cls"]
+    cracks --> pieces["Rock pieces<br/>(cm)"]
+    det --> pieces
+    zones --> pieces
+    pieces --> rqd["RQD +<br/>fracture frequency"]
+    cols --> litho["Rock type from image<br/>DINOv2"]
+    xrf["XRF reading"] --> chem["Rock type from chemistry<br/>references + random forest"]
+    litho --> fusion["Fusion +<br/>conflict flag"]
+    chem --> fusion

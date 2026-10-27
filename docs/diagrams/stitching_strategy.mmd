@@ -1,0 +1,9 @@
+flowchart TB
+    start["Photos"] --> m{"scan_manifest.json<br/>with robot X/Y?"}
+    m -- yes --> robot["1. Robot positions"]
+    m -- no --> g{"file names carry<br/>row/column (r2c4)?"}
+    g -- yes --> grid["2. Known grid"]
+    g -- no --> blind["3. Blind: OpenCV Stitcher (SCANS),<br/>then SIFT + RANSAC homography"]
+    robot --> layout["Rows → vertical columns,<br/>140 px wide (model layout)"]
+    grid --> aruco["Scale from a 5 cm ArUco marker"]
+    blind --> aruco

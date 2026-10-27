@@ -1,0 +1,17 @@
+{
+ "C": 10.0,
+ "val_macro_f1": 0.8348,
+ "c_sweep": [
+  {"C": 0.1, "val_macro_f1": 0.766},
+  {"C": 0.3, "val_macro_f1": 0.793},
+  {"C": 1.0, "val_macro_f1": 0.819},
+  {"C": 3.0, "val_macro_f1": 0.827},
+  {"C": 10.0, "val_macro_f1": 0.835}
+ ],
+ "temperature_scaling": {"T": 0.907, "ece_before": 0.028, "ece_after": 0.013, "used_by_pipeline": false},
+ "compared_on_the_same_split": {
+  "yolov8n_cls": {"accuracy": 0.845, "macro_f1": 0.851, "benguerir_photos_correct": "3/12", "ece": 0.066},
+  "yolo11s_cls": {"accuracy": 0.791, "macro_f1": 0.798, "benguerir_photos_correct": "2/12", "ece": 0.126},
+  "dinov2_head": {"benguerir_photos_correct": "6/12"}
+ }
+}

@@ -1,0 +1,37 @@
+# personal study notes, never published
+STUDY.md
+**/STUDY.md
+
+# python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# model weights, datasets and training outputs
+weights/
+data/
+!models/classification/xrf-randomforest/data/
+# Published evidence: keep these CSVs even when a parent repository ignores *.csv.
+!models/classification/xrf-randomforest/data/ngdb_sedimentary.csv
+!models/**/results/*.csv
+runs/
+demo-output/
+*.pt
+*.pth
+*.onnx
+*.joblib
+*.npz
+
+# misc
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+
+# how the training labels were built (kept private)
+**/completing annotation/

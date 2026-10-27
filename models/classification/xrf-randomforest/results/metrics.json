@@ -1,0 +1,296 @@
+{
+ "cross_validation": {
+  "world (held-out US states)": {
+   "n": 4802,
+   "accuracy": 0.8534,
+   "macro_f1": 0.818,
+   "classes": [
+    "dolomitic_limestone",
+    "flint",
+    "limestone",
+    "out_of_series",
+    "phosphate",
+    "siliceous_marl"
+   ],
+   "per_class": {
+    "dolomitic_limestone": {
+     "support": 547,
+     "precision": 0.7371,
+     "recall": 0.7843,
+     "f1": 0.76
+    },
+    "flint": {
+     "support": 563,
+     "precision": 0.8382,
+     "recall": 0.5613,
+     "f1": 0.6723
+    },
+    "limestone": {
+     "support": 1538,
+     "precision": 0.8989,
+     "recall": 0.844,
+     "f1": 0.8706
+    },
+    "out_of_series": {
+     "support": 2000,
+     "precision": 0.8594,
+     "recall": 0.9565,
+     "f1": 0.9053
+    },
+    "phosphate": {
+     "support": 154,
+     "precision": 0.8452,
+     "recall": 0.9221,
+     "f1": 0.882
+    }
+   },
+   "confusion_rows_true_cols_predicted": [
+    [
+     429,
+     5,
+     93,
+     17,
+     3,
+     0
+    ],
+    [
+     0,
+     316,
+     15,
+     227,
+     0,
+     5
+    ],
+    [
+     145,
+     16,
+     1298,
+     60,
+     19,
+     0
+    ],
+    [
+     7,
+     40,
+     36,
+     1913,
+     4,
+     0
+    ],
+    [
+     1,
+     0,
+     2,
+     9,
+     142,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "benguerir (held-out samples)": {
+   "n": 2700,
+   "accuracy": 0.8748,
+   "macro_f1": 0.8752,
+   "classes": [
+    "dolomitic_limestone",
+    "flint",
+    "limestone",
+    "marl",
+    "phosphate",
+    "phosphate_flint",
+    "phosphatic_limestone",
+    "phosphatic_marl",
+    "siliceous_marl"
+   ],
+   "per_class": {
+    "dolomitic_limestone": {
+     "support": 300,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "flint": {
+     "support": 300,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "limestone": {
+     "support": 300,
+     "precision": 0.9448,
+     "recall": 0.9133,
+     "f1": 0.9288
+    },
+    "marl": {
+     "support": 300,
+     "precision": 0.8275,
+     "recall": 0.7833,
+     "f1": 0.8048
+    },
+    "phosphate": {
+     "support": 300,
+     "precision": 0.7911,
+     "recall": 0.8333,
+     "f1": 0.8117
+    },
+    "phosphate_flint": {
+     "support": 300,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "phosphatic_limestone": {
+     "support": 300,
+     "precision": 0.717,
+     "recall": 0.76,
+     "f1": 0.7379
+    },
+    "phosphatic_marl": {
+     "support": 300,
+     "precision": 0.6508,
+     "recall": 0.64,
+     "f1": 0.6454
+    },
+    "siliceous_marl": {
+     "support": 300,
+     "precision": 0.9529,
+     "recall": 0.9433,
+     "f1": 0.9481
+    }
+   },
+   "confusion_rows_true_cols_predicted": [
+    [
+     300,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     300,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     274,
+     7,
+     2,
+     0,
+     15,
+     2,
+     0
+    ],
+    [
+     0,
+     0,
+     10,
+     235,
+     0,
+     0,
+     3,
+     39,
+     13
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     250,
+     0,
+     26,
+     24,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     300,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     3,
+     1,
+     31,
+     0,
+     228,
+     37,
+     0
+    ],
+    [
+     0,
+     0,
+     3,
+     25,
+     33,
+     0,
+     46,
+     192,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     16,
+     0,
+     0,
+     0,
+     1,
+     283
+    ]
+   ]
+  }
+ },
+ "feature_importance": {
+  "ln(CaO/SiO2)": 0.0833,
+  "ln(P2O5/Al2O3)": 0.0758,
+  "ln(P2O5/MgO)": 0.0722,
+  "ln(CaO/MgO)": 0.0675,
+  "ln(SiO2/Al2O3)": 0.0636,
+  "ln(P2O5/K2O)": 0.0611,
+  "ln(CaO/Al2O3)": 0.0608,
+  "ln(SiO2/K2O)": 0.0581,
+  "ln(P2O5/CaO)": 0.0525,
+  "ln(Al2O3/MgO)": 0.0496,
+  "ln(CaO/K2O)": 0.0455,
+  "ln(Al2O3/K2O)": 0.0452,
+  "ln(P2O5/SiO2)": 0.0447,
+  "ln(SiO2/MgO)": 0.0401,
+  "ln(CaO/Fe2O3)": 0.0392,
+  "ln(P2O5/Fe2O3)": 0.0361,
+  "ln(Fe2O3/K2O)": 0.0271,
+  "ln(MgO/K2O)": 0.027,
+  "ln(Fe2O3/MgO)": 0.0186,
+  "ln(SiO2/Fe2O3)": 0.0172,
+  "ln(Al2O3/Fe2O3)": 0.0122,
+  "MgO not measured": 0.0025
+ }
+}

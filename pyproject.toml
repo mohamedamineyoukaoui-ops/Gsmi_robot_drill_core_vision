@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gsmi-core-vision-pipeline"
+version = "1.0.0"
+description = "Core-tray photos to RQD and rock type: stitching, crack segmentation, piece detection, DINOv2 lithology and XRF fusion"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26,<3", "opencv-python-headless>=4.10,<5"]
+
+[project.optional-dependencies]
+# running the trained models
+inference = ["torch>=2.5,<3", "segmentation-models-pytorch>=0.5,<0.6", "ultralytics>=8.3,<9",
+             "timm>=1,<2", "scikit-learn>=1.5,<2", "joblib>=1.4,<2"]
+# training scripts in models/ (adds augmentation, progress bars, data tables)
+training = ["gsmi-core-vision-pipeline[inference]", "albumentations>=2,<3", "tqdm>=4", "pandas>=2"]
+# tools/make_figures.py
+figures = ["matplotlib>=3.8,<4", "pandas>=2"]
+test = ["pytest>=8,<9"]
+
+[project.scripts]
+gsmi-vision = "pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pipeline*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

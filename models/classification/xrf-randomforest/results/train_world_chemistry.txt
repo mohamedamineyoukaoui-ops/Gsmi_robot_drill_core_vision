@@ -1,0 +1,31 @@
+WORLD: 4802 USGS analyses — out_of_series 2000, limestone 1538, flint 563, dolomitic_limestone 547, phosphate 154
+
+T1  A3 (literature refs, untrained) on WORLD: accuracy 50.2 %
+    dolomitic_limestone 54% (n=547) | flint 1% (n=563) | limestone 29% (n=1538) | out_of_series 78% (n=2000) | phosphate 65% (n=154)
+
+T2  A4 trained on WORLD only (never saw Benguerir):
+    on 14 published Benguerir analyses: flint_S->phosphate, flint_G1->dolomitic_limestone, flint_G2->dolomitic_limestone, flint_G3->dolomitic_limestone, phosphate_flint_S->phosphate, phosphate_flint_G1->phosphate, phosphate_flint_G2->phosphate, phosphate_flint_G3->phosphate, dolomite_S->limestone, dolomite_G1->limestone, dolomite_G2->limestone, dolomite_G3->limestone, safhi_flint->flint, silexite->dolomitic_limestone
+    on Benguerir literature-sampled:    dolomitic_limestone 77% (n=300) | flint 40% (n=300) | limestone 100% (n=300) | marl 0% (n=300) | phosphate 0% (n=300) | phosphate_flint 0% (n=300) | phosphatic_limestone 0% (n=300) | phosphatic_marl 0% (n=300) | siliceous_marl 0% (n=300)
+
+T3  A4 trained on WORLD + BENGUERIR, 5-fold CV holding out whole US states:
+    WORLD held-out accuracy 85.3 %  — dolomitic_limestone 78% (n=547) | flint 56% (n=563) | limestone 84% (n=1538) | out_of_series 96% (n=2000) | phosphate 92% (n=154)
+    BENGUERIR held-out accuracy 87.5 %  — dolomitic_limestone 100% (n=300) | flint 100% (n=300) | limestone 91% (n=300) | marl 78% (n=300) | phosphate 83% (n=300) | phosphate_flint 100% (n=300) | phosphatic_limestone 76% (n=300) | phosphatic_marl 64% (n=300) | siliceous_marl 94% (n=300)
+    A3 on the same BENGUERIR samples (reference):  84.4 %
+
+T4  final A4 (WORLD + BENGUERIR) vs A3 on the 14 published Benguerir analyses:
+    analysis | expected | A4-world | A3
+    flint_S | flint | phosphate_flint | phosphate_flint
+    flint_G1 | flint | flint | flint
+    flint_G2 | flint | flint | flint
+    flint_G3 | flint | flint | flint
+    phosphate_flint_S | phosphate_flint | phosphate_flint | phosphate_flint
+    phosphate_flint_G1 | phosphate_flint | phosphate_flint | phosphate_flint
+    phosphate_flint_G2 | phosphate_flint | phosphate_flint | phosphate_flint
+    phosphate_flint_G3 | phosphate_flint | phosphate_flint | phosphate_flint
+    dolomite_S | dolomitic_limestone | dolomitic_limestone | dolomitic_limestone
+    dolomite_G1 | dolomitic_limestone | dolomitic_limestone | dolomitic_limestone
+    dolomite_G2 | dolomitic_limestone | dolomitic_limestone | dolomitic_limestone
+    dolomite_G3 | dolomitic_limestone | dolomitic_limestone | dolomitic_limestone
+    safhi_flint | flint | flint | flint
+    silexite | siliceous_marl | dolomitic_limestone | flint
+    top features: ln(CaO/SiO2) 0.08, ln(P2O5/Al2O3) 0.08, ln(P2O5/MgO) 0.07, ln(CaO/MgO) 0.07, ln(SiO2/Al2O3) 0.06, ln(P2O5/K2O) 0.06

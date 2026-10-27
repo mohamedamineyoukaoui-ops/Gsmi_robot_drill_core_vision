@@ -1,0 +1,18 @@
+flowchart TB
+    subgraph S1["Stage 1: models, run once (seconds)"]
+        img["Tray image + px/cm"] --> unet["cracks.py<br/>U-Net crack mask"]
+        img --> col["columns.py<br/>column detector"]
+        img --> det["pieces.py<br/>piece detector"]
+        col --> zon["zones.py<br/>zone classifier"]
+        col --> lit["lithology_image.py<br/>DINOv2"]
+    end
+    S1 -- "cached state:<br/>mask, columns, boxes, zones" --> S2
+    S1 -- "rock-type probabilities" --> fus["lithology_fusion.py<br/>image + XRF"]
+    subgraph S2["Stage 2: geometry, no model (milliseconds)"]
+        corr["User corrections<br/>lines = crack, boxes = intact"] --> geo["Per column:<br/>core span, pieces, zone vetoes"]
+        geo --> merge["Merge pieces cut<br/>by a column boundary"]
+        merge --> rqd["rqd.py<br/>RQD, fracture frequency"]
+        rqd --> ov["overlay.py"]
+    end
+    classDef stage fill:#f7f7f7,stroke:#999
+    class S1,S2 stage

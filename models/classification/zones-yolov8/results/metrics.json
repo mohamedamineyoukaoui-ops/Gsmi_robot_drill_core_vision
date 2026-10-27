@@ -1,0 +1,64 @@
+{
+ "split": "val (real patches only)",
+ "n": 253,
+ "accuracy": 0.913,
+ "macro_f1": 0.8867,
+ "per_class": {
+  "intact": {
+   "support": 135,
+   "precision": 0.9403,
+   "recall": 0.9333,
+   "f1": 0.9368
+  },
+  "rubble": {
+   "support": 66,
+   "precision": 0.8923,
+   "recall": 0.8788,
+   "f1": 0.8855
+  },
+  "sand": {
+   "support": 20,
+   "precision": 0.7895,
+   "recall": 0.75,
+   "f1": 0.7692
+  },
+  "empty": {
+   "support": 32,
+   "precision": 0.9143,
+   "recall": 1.0,
+   "f1": 0.9552
+  }
+ },
+ "confusion_rows_true_cols_predicted": [
+  [
+   126,
+   4,
+   2,
+   3
+  ],
+  [
+   6,
+   58,
+   2,
+   0
+  ],
+  [
+   2,
+   3,
+   15,
+   0
+  ],
+  [
+   0,
+   0,
+   0,
+   32
+  ]
+ ],
+ "intact_vs_broken": {
+  "broken_called_intact": 8,
+  "intact_called_broken": 9,
+  "intact_precision": 0.9403,
+  "intact_recall": 0.9333
+ }
+}
