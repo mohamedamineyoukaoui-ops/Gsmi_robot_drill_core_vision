@@ -6,7 +6,7 @@
 
 *A tray scanned by the robot (left) and the pipeline's output (right). Green pieces of 10 cm or more count towards RQD; this tray scores 86.0 % (Good). Yellow is the crack mask, cyan the outline the contour method closes.*
 
-[Project and contribution](#at-a-glance) · [Engineering choices](#engineering-choices) · [Results](#models-and-recorded-results) · [Detailed walkthrough](#pipeline-in-detail) · [Quick start](#quick-start) · [Limitations](#limitations)
+[Project and contribution](#at-a-glance) · [The scanner](#the-scanner) · [Engineering choices](#engineering-choices) · [Results](#models-and-recorded-results) · [Detailed walkthrough](#pipeline-in-detail) · [Quick start](#quick-start) · [Limitations](#limitations)
 
 ## At a glance
 
@@ -21,6 +21,20 @@
 GSMI is a team project for scanning drill-core trays. **I designed, annotated the data for, trained and integrated the vision components in this repository:** image stitching, six trained models, measurement logic and image/XRF fusion. Taha Ouadine built the robot's control interface and electronics, which are outside this repository.
 
 That covers the whole chain: labels, data splits, architectures and losses, training, evaluation, and turning model outputs into physical measurements. Every model folder keeps its training script, settings, results and figures.
+
+## The scanner
+
+A gantry robot moves a camera over the tray and photographs it in a grid of overlapping close-ups. The tray below, box 15 (69.88 to 73.44 m), is the one shown at the top of this page and analysed step by step further down.
+
+<p align="center">
+<img src="docs/assets/robot_scan.gif" width="560" alt="The robot scanning a core tray">
+</p>
+<p align="center"><em>The robot scanning box 15 (<a href="docs/assets/robot_scan.mp4">video</a>).</em></p>
+
+<p align="center">
+<img src="docs/assets/robot_tray.jpg" width="470" alt="The core tray under the robot gantry">
+<img src="docs/assets/robot_tray_top.jpg" width="320" alt="The same tray seen from the side of the gantry">
+</p>
 
 ## How it works
 
@@ -60,6 +74,10 @@ The [stitcher](pipeline/image_processing/README.md) has a recorded example of 12
 ## Pipeline in detail
 
 The sections below explain what each component does, why it was chosen, and how it was evaluated. Each links to a model or pipeline README with the complete training settings, per-class results and execution instructions.
+
+![Box 15 from the robot's photos to RQD](docs/assets/pipeline_steps.jpg)
+
+*Box 15, step by step: the robot's 63 photos (one in three shown), the stitched tray, the detected columns, the U-Net's crack mask, and the pieces that give the RQD.*
 
 | Stage | Input → output | Main engineering question |
 | --- | --- | --- |
